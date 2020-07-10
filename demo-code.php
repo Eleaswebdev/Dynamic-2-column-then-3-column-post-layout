@@ -1,4 +1,4 @@
-<div class="row">
+ <div class="row">
 		<?php
 		// Get all our posts, and start the counter
             $postNumber = 0;
@@ -30,6 +30,13 @@
                 echo '<div class="'.$col_width.'">';
                 // Print the post data...
                 echo $postNumber. " " . $col_width;
+                echo $post->post_title;
+                $examplePost = get_post();
+
+                //echo $examplePost->post_content; // Don't do this
+
+                echo apply_filters( 'the_content', $examplePost->post_content ); // Do this instead
+                               //echo $the_content; 
                 echo "</div>";
                 // If we are at the second post, or we're just after a post number divisible by three we are at the end of the row
                 // if (($postNumber == 1) || (($postNumber-1) % 3 == 0)) {
